@@ -94,7 +94,23 @@
         <button @click="toggleLocations" class="text-blue-400  font-semibold hover:underline mt-4">{{ showAllLocations ? 'Show Less' : 'Show More' }}</button>
       </div>
   </div>
-    </div>
+  <div class="flex items-center justify-center h-32">
+    <ul class="list-none">
+        <li class="inline-block mx-4 text-center">
+            <span class="flex flex-col items-center">
+                <img src="../assets/github.jpg" alt="githubIcon" class="w-12 h-auto">
+                <a href="https://github.com/beimnetdemisew" class="text-white mt-2 transition duration-300 ease-in-out transform hover:text-blue-600">Github</a>
+            </span>
+        </li>
+        <li class="inline-block mx-4 text-center">
+            <span class="flex flex-col items-center">
+                <img src="../assets/figma.jpg" alt="figmaIcon" class="w-12 h-auto">
+                <a href="https://www.figma.com/design/hSEDToioF24VZ9D24R8KiZ/Rick-and-Morty?node-id=0-1&t=v3nvslPaYVsZokCh-0" class="text-white mt-2 transition duration-300 ease-in-out transform hover:text-blue-600">Figma</a>
+            </span>
+        </li>
+    </ul>
+  </div>
+   </div>
   </div>
   </div>
 </template>
