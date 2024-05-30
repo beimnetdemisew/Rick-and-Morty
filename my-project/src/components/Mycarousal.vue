@@ -52,16 +52,10 @@
       return {
         currentSlide: 0,
         slides: [
-          'https://rickandmortyapi.com/api/character/avatar/271.jpeg',
-          'https://rickandmortyapi.com/api/character/avatar/338.jpeg',
-          'https://rickandmortyapi.com/api/character/avatar/1.jpeg',
-          'https://rickandmortyapi.com/api/character/avatar/38.jpeg',
-          'https://rickandmortyapi.com/api/character/avatar/92.jpeg',
-          'https://rickandmortyapi.com/api/character/avatar/158.jpeg',
-          'https://rickandmortyapi.com/api/character/avatar/71.jpeg',
-          'https://rickandmortyapi.com/api/character/avatar/175.jpeg',
-          'https://rickandmortyapi.com/api/character/avatar/216.jpeg',
-          'https://rickandmortyapi.com/api/character/avatar/303.jpeg'
+        { image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbxH9yUOLz6ofvHikK-Vx5lP5Frrs3UsbfVQ&s' },
+        { image: 'https://w0.peakpx.com/wallpaper/653/714/HD-wallpaper-rick-morty-x-breaking-bad.jpg' },
+        { image: 'https://wallpapercave.com/wp/wp1822728.jpg' },
+
         ]
       }
     },

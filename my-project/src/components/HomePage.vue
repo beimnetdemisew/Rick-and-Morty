@@ -58,7 +58,7 @@
       <div>
           <h2 class="text-3xl font-bold text-cyan-100 mb-6">Episodes</h2>
           <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div v-for="(ep, index) in displayedEpisodes" :key="ep.id" class="episode-item bg-gray-800 shadow-md rounded-lg p-4 flex flex-col items-center">
+            <div v-for="(ep, index) in displayedEpisodes" :key="ep.id" class="episode-item bg-gray-800 shadow-md rounded-lg p-4 flex flex-col items-center" @click="navigateToEpisode(ep.id)">
               <h3 class="font-semibold text-xl text-white">{{ ep.name }}</h3>
               <p class="text-white">{{ ep.episode }}</p>
               <p class="text-white">{{ ep.air_date }}</p>
@@ -73,7 +73,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <div v-for="character in displayedCharacters" :key="character.id" class="bg-gray-800 shadow-md rounded-lg p-4">
             <div class="flex flex-col items-center">
-              <img :src="character.image" alt="Character Image" class="w-32 h-32 object-cover rounded-full mb-4">
+              <img :src="character.image" alt="Character Image" class="w-32 h-32 object-cover rounded-full mb-4" @click="navigateToCharacter(character.id)">
               <h3 class="font-semibold text-xl text-white">{{ character.name }}</h3>
               <p class="text-white">{{ character.status }}</p>
               <p class="text-white">{{ character.species }}</p>
@@ -87,7 +87,7 @@
       <div>
         <h2 class="text-3xl font-bold text-cyan-200 mb-6">Locations</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div v-for="location in displayedLocations" :key="location.id" class="bg-gray-800 shadow-md rounded-lg p-4">
+          <div v-for="location in displayedLocations" :key="location.id" class="bg-gray-800 shadow-md rounded-lg p-4" @click="navigateToLocation(location.id)">
             <h3 class="font-semibold text-xl text-white">{{ location.name }}</h3>
           </div>
         </div>
@@ -118,8 +118,10 @@
 <script setup>
 import { ref, watchEffect, computed } from 'vue'
 import gql from 'graphql-tag'
+import { useRouter } from 'vue-router';
 import { useQuery } from '@vue/apollo-composable'
 import { RouterLink } from 'vue-router';
+const router=useRouter()
 
 const CHARACTERS_QUERY = gql`
   query Characters {
@@ -160,6 +162,17 @@ const getUniqueItems = (items, key) => {
     return false;
   });
 }
+
+const navigateToEpisode = (id) => {
+  router.push({ name: 'EpisodeDetails', params: { id } })
+}
+const navigateToCharacter = (id) => {
+  router.push({ name: 'CharacterDetails', params: { id } })
+}
+const navigateToLocation = (id) => {
+  router.push({ name: 'LocationDetails', params: { id } })
+}
+
 
 // Compute unique episodes, characters, and locations
 const uniqueEpisodes = computed(() => {
